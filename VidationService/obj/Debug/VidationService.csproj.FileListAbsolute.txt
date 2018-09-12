@@ -1,0 +1,6 @@
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\bin\Debug\VidationService.dll
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\bin\Debug\VidationService.pdb
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\obj\Debug\VidationService.csprojAssemblyReference.cache
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\obj\Debug\VidationService.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\obj\Debug\VidationService.dll
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\VidationService\obj\Debug\VidationService.pdb

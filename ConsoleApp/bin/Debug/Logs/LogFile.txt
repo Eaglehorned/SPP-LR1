@@ -1,0 +1,1 @@
+2018-09-10 00:44:33.4297|WARN|MyLogger.MyLogger|Value length must be less then 10.
