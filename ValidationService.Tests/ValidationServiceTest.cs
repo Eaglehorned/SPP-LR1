@@ -18,6 +18,7 @@ namespace ValidationService.Tests
             validationService = new Services.ValidationService(moq.Object);
         }
 
+        
         [TestMethod]
         public void Validate_ValidModel_Valid()
         {
@@ -33,6 +34,7 @@ namespace ValidationService.Tests
             moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Never);
             Assert.IsTrue(actualResult.Ok);
         }
+        
 
         [TestMethod]
         public void Validate_StringMoreThanMax_Invalid()
