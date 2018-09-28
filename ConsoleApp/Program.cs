@@ -10,14 +10,13 @@ namespace ConsoleApp
         {
             TestEntity t = new TestEntity()
             {
-                StringTestValue = "asdasdasdasdasdasdasdasdasd",
-                IntTestValue = 10,
-                NotNullTestValue = "asd"
+                StringTestValue = "ad",
+                IntTestValue = 100,
+                RequiredValue = null
             };
 
             ValidationService.Services.ValidationService validationService = new ValidationService.Services.ValidationService(
-                new MyLogger.MyLogger(),
-                new ValidationService.Services.ObjectService());
+                new CustomLogger.CustomLogger());
 
             ValidationResult validationResult = validationService.Validate(t);
 

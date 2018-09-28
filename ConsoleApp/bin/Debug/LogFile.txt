@@ -1,0 +1,2 @@
+2018-09-18 18:31:43.2831|WARN|CustomLogger.CustomLogger|Value should be in range [3;30].
+2018-09-18 18:31:43.3080|WARN|CustomLogger.CustomLogger|Value cant be null.

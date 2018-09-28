@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ValidationService
+﻿namespace ValidationService
 {
     public class AttributeValidationResult
     {
-        public bool Ok { get; set; }
+        public AttributeValidationResult(bool ok)
+        {
+            Ok = ok;
+        }
+
+        public bool Ok { get; }
 
         public string Error { get; set; }
     }

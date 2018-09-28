@@ -1,35 +1,42 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace ValidationService.ValidationAttributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-    public class IntRangeAttributeAttribute : NotNullAttribute
+    public class IntRangeAttribute : Attribute, IIntRangeValidationAttribute, ICustomValidationAttribute<int>
     {
         public int Min { get; private set; }
         public int Max { get; private set; }
 
-        public IntRangeAttributeAttribute(int min, int max)
+        public string ErrorMessage { get; }
+
+        public IntRangeAttribute(int min, int max)
         {
             Min = min;
             Max = max;
+
+            ErrorMessage = Resources.Resource.IntRangeAttributeError;
         }
 
-        public override bool IsValid(object value)
+        public bool IsValid(object value)
         {
-            if (!base.IsValid(value))
+            int castedValue;
+
+            try
+            {
+                castedValue = Convert.ToInt32(value);
+            }
+            catch (Exception)
             {
                 return false;
             }
 
-            if ((int)value < Min || Max < (int)value)
-            {
-                ErrorMessage = $"Value should be in range [{Min};{Max}].";
+            return IsValid(castedValue);
+        }
 
-                return false;
-            }
-
-            return true;
+        public bool IsValid(int value)
+        {
+            return Min < value && value < Max;
         }
     }
 }

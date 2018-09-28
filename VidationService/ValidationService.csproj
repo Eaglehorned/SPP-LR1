@@ -41,23 +41,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IObjectService.cs" />
     <Compile Include="Contracts\IValidationService.cs" />
     <Compile Include="Models\AttributeValidationResult.cs" />
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ObjectService.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReflectionExtenctions.cs" />
     <Compile Include="Services\ValidationService.cs" />
     <Compile Include="ValidationAttributes\IntRangeValidationAttribute.cs" />
-    <Compile Include="ValidationAttributes\MyValidationAttribute.cs" />
-    <Compile Include="ValidationAttributes\NotNullAttribute.cs" />
-    <Compile Include="ValidationAttributes\StringLengthAttribute.cs" />
+    <Compile Include="ValidationAttributes\ICustomValidationAttribute.cs" />
+    <Compile Include="ValidationAttributes\RequiredValidationAttribute.cs" />
+    <Compile Include="ValidationAttributes\StringMaxLengthAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyLogger\MyLogger.csproj">
+    <ProjectReference Include="..\MyLogger\CustomLogger.csproj">
       <Project>{65ad402b-897a-4ca6-8a3f-6795e8ba8fe9}</Project>
-      <Name>MyLogger</Name>
+      <Name>CustomLogger</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

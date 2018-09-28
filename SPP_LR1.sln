@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationService.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{8C2A88AF-DD8E-4BCC-A539-6DD02ED3001C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLogger", "MyLogger\MyLogger.csproj", "{65AD402B-897A-4CA6-8A3F-6795E8BA8FE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLogger", "MyLogger\CustomLogger.csproj", "{65AD402B-897A-4CA6-8A3F-6795E8BA8FE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

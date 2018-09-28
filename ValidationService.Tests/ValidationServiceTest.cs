@@ -1,12 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ValidationService.Contracts;
+﻿using System.Linq;
+using Moq;
+using CustomLogger;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ValidationService.Tests
 {
     [TestClass]
     public class ValidationServiceTest
     {
-        private readonly Services.ValidationService validationService = new Services.ValidationService(new MyLogger.MyLogger(), new Services.ObjectService());
+        private readonly Mock<ICustomLogger> moq;
+        private readonly Services.ValidationService validationService;
+
+
+        public ValidationServiceTest()
+        {
+            moq = new Mock<ICustomLogger>();
+            validationService = new Services.ValidationService(moq.Object);
+        }
 
         [TestMethod]
         public void Validate_ValidModel_Valid()
@@ -15,10 +25,12 @@ namespace ValidationService.Tests
             {
                 StringTestValue = "test",
                 IntTestValue = 5,
-                NotNullTestValue = "as"
+                RequiredValue = "as"
             };
 
             ValidationResult actualResult = validationService.Validate(testEntity);
+            
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Never);
             Assert.IsTrue(actualResult.Ok);
         }
 
@@ -29,10 +41,12 @@ namespace ValidationService.Tests
             {
                 StringTestValue = "testtesttest",
                 IntTestValue = 5,
-                NotNullTestValue = "as"
+                RequiredValue = "as"
             };
             
             ValidationResult actualResult = validationService.Validate(testEntity);
+
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Exactly(actualResult.Errors.Count()));
             Assert.IsFalse(actualResult.Ok);
         }
 
@@ -42,11 +56,13 @@ namespace ValidationService.Tests
             TestEntity testEntity = new TestEntity()
             {
                 StringTestValue = null,
-                IntTestValue = 2,
-                NotNullTestValue = "as"
+                IntTestValue = 4,
+                RequiredValue = "as"
             };
 
             ValidationResult actualResult = validationService.Validate(testEntity);
+
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Exactly(actualResult.Errors.Count()));
             Assert.IsFalse(actualResult.Ok);
         }
 
@@ -57,10 +73,12 @@ namespace ValidationService.Tests
             {
                 StringTestValue = "test",
                 IntTestValue = 50,
-                NotNullTestValue = "as"
+                RequiredValue = "as"
             };
             
             ValidationResult actualResult = validationService.Validate(testEntity);
+
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Exactly(actualResult.Errors.Count()));
             Assert.IsFalse(actualResult.Ok);
         }
 
@@ -71,24 +89,28 @@ namespace ValidationService.Tests
             {
                 StringTestValue = "test",
                 IntTestValue = 2,
-                NotNullTestValue = "as"
+                RequiredValue = "as"
             };
             
             ValidationResult actualResult = validationService.Validate(testEntity);
+
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Exactly(actualResult.Errors.Count()));
             Assert.IsFalse(actualResult.Ok);
         }
 
         [TestMethod]
-        public void Validate_NotNullIsNull_Invalid()
+        public void Validate_Required_Invalid()
         {
             TestEntity testEntity = new TestEntity()
             {
                 StringTestValue = "test",
-                IntTestValue = 2,
-                NotNullTestValue = null
+                IntTestValue = 3,
+                RequiredValue = null
             };
 
             ValidationResult actualResult = validationService.Validate(testEntity);
+
+            moq.Verify(logger => logger.LogWarn(It.IsAny<string>()), Times.Exactly(actualResult.Errors.Count()));
             Assert.IsFalse(actualResult.Ok);
         }
     }

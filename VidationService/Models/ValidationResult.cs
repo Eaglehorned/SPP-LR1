@@ -4,8 +4,14 @@ namespace ValidationService
 {
     public class ValidationResult
     {
-        public bool Ok { get; set; }
+        public ValidationResult(bool ok, IEnumerable<string> errors)
+        {
+            Ok = ok;
+            Errors = errors;
+        }
 
-        public IEnumerable<string> Errors { get; set; }
+        public bool Ok { get; }
+
+        public IEnumerable<string> Errors { get; }
     }
 }

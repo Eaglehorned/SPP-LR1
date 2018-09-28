@@ -1,0 +1,10 @@
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\bin\Debug\MyLogger.dll
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\bin\Debug\MyLogger.pdb
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\bin\Debug\NLog.dll
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\bin\Debug\NLog.xml
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\obj\Debug\CustomLogger.csprojAssemblyReference.cache
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\obj\Debug\CustomLogger.csproj.CoreCompileInputs.cache
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\obj\Debug\CustomLogger.csproj.CopyComplete
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\obj\Debug\MyLogger.dll
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\obj\Debug\MyLogger.pdb
+C:\Users\Nadim\Desktop\СПП\SPP_LR1\MyLogger\bin\Debug\MyLogger.dll.config

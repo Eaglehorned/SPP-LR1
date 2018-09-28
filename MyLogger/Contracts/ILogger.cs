@@ -1,15 +1,15 @@
-﻿namespace MyLogger
+﻿namespace CustomLogger
 {
-    public interface ILogger
+    public interface ICustomLogger
     {
-        void Info(string message);
+        void LogInfo(string message);
 
-        void Warn(string message);
+        void LogWarn(string message);
 
-        void Debug(string message);
+        void LogDebug(string message);
 
-        void Error(string message);
+        void LogError(string message);
 
-        void Fatal(string message);
+        void LogFatal(string message);
     }
 }
